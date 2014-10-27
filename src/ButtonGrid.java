@@ -1,4 +1,8 @@
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -21,6 +25,15 @@ public class ButtonGrid {
 			for(int x=0; x<width; x++)
 			{
 				grid[x][y]=new JButton("("+x+", "+y+")");//will display (x, y)
+				
+				grid[x][y].addActionListener(new ActionListener(){//add action listener to each button to change color of button when pressed
+					public void actionPerformed(ActionEvent e){
+
+					    ((JButton)e.getSource()).setBackground(Color.red);
+					    }
+					});
+				
+				
 				frame.add(grid[x][y]);
 			}
 		}
